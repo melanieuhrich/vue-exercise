@@ -1,26 +1,25 @@
 <template>
   <section>
-    <img alt="Vue logo" src="./assets/logo.png" />
     <Heading />
-    <QuotesList />
-    <Pagination />
-    <Filter />
+    <Search class='top' />
+    <Filter class='top' />
+    <ListAndPagination />
   </section>
 </template>
 
 <script>
 import Heading from "./components/Heading.vue";
-import QuotesList from "./components/QuotesList.vue";
-import Pagination from "./components/Pagination.vue";
+import ListAndPagination from "./components/ListAndPagination.vue";
 import Filter from "./components/Filter.vue";
+import Search from "./components/Search.vue";
 
 export default {
   name: "App",
   components: {
     Heading,
-    QuotesList,
-    Pagination,
+    ListAndPagination,
     Filter,
+    Search
   },
 };
 </script>
@@ -33,5 +32,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.top {
+  display: inline
 }
 </style>
