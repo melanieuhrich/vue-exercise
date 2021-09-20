@@ -1,15 +1,17 @@
 <template>
   <section>
+    <input class="bar" type="text" placeholder="Search by quote..." v-model="search" v-on:keyup='updateQuotes()'/>
+    <div>
     <ol class='list'>
       <li
-        v-for="item in visibleItems"
-        v-bind:visibleItems="visibleItems"
-        v-bind:currentPage="currentPage"
-        :key="item.id"
+        v-for='item in visibleItems'
+        v-bind:visibleItems='visibleItems'
+        v-bind:currentPage='currentPage'
+        :key='item.id'
       >
-        <div class="quote">
-          "{{ item.quote }}" -- {{ item.source }} in
-          <div class="character">{{ item.context }}</div>
+        <div class='quote'>
+          "{{ item.quote }}" --{{ item.source }} in
+          <div class='character'>{{ item.context }}</div>
         </div>
         <br />
         <br />
@@ -23,7 +25,6 @@
       >
         Previous
       </button>
-      <!-- {{ currentPage + 1 }} of {{ totalPages() }} -->
       <button
         v-if="showNextLink()"
         class="pagination-btn"
@@ -32,6 +33,7 @@
         Next
       </button>
       <div>Page {{ currentPage + 1 }} of {{ totalPages() }}</div>
+    </div>
     </div>
   </section>
 </template>
@@ -47,12 +49,20 @@ export default {
       currentPage: 0,
       pageSize: 10,
       visibleItems: [],
+      search:''
     };
   },
+   computed: {
+      filteredItems() {
+          return data.filter(item => item.quote.includes(this.search))
+      }},
   beforeMount: function () {
     this.updateVisibleItems();
   },
   methods: {
+    updateQuotes() {
+      this.visibleItems = this.items.filter(item => item.quote.includes(this.search))
+    },
     updatePage(pageNumber) {
       this.currentPage = pageNumber;
       this.updateVisibleItems();
@@ -67,9 +77,6 @@ export default {
         this.updatePage(this.currentPage - 1);
       }
     },
-    // updatePage(pageNumber) {
-    //   this.$emit("page:update", pageNumber);
-    // },
     totalPages() {
       return Math.ceil(this.items.length / this.pageSize);
     },
@@ -84,6 +91,10 @@ export default {
 </script>
 
 <style scoped>
+.bar {
+  border-radius: 5px;
+  height: 30px;
+}
 .list {
   margin-top: 50px;
   margin-bottom: 50px;

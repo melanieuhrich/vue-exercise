@@ -12,7 +12,8 @@ export default {
 
 <style scoped>
   .filter-btn {
-    margin: 5px;
+    /* margin: 5px; */
+    height: 30px;
     background-color: lightblue;
     border-radius: 5px;
   }

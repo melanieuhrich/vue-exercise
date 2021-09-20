@@ -1,8 +1,7 @@
 <template>
   <section>
     <Heading />
-    <Search class='top' />
-    <Filter class='top' />
+    <!-- <Filter class='top' /> -->
     <ListAndPagination />
   </section>
 </template>
@@ -10,16 +9,14 @@
 <script>
 import Heading from "./components/Heading.vue";
 import ListAndPagination from "./components/ListAndPagination.vue";
-import Filter from "./components/Filter.vue";
-import Search from "./components/Search.vue";
+// import Filter from "./components/Filter.vue";
 
 export default {
   name: "App",
   components: {
     Heading,
     ListAndPagination,
-    Filter,
-    Search
+    // Filter,
   },
 };
 </script>
@@ -33,7 +30,7 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-.top {
+/* .top {
   display: inline
-}
+} */
 </style>

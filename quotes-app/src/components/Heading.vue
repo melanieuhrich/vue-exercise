@@ -1,5 +1,5 @@
 <template>
-    <h2 class="title is-2">Vue.js Quotes List</h2>
+    <h1>Vue.js Quotes List</h1>
 </template>
 
 <script>
@@ -9,7 +9,7 @@ export default {
 </script>
 
 <style scoped>
-    h2 {
+    h1 {
         text-decoration: underline;
     }
 </style>
