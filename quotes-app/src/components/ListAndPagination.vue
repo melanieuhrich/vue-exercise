@@ -12,7 +12,7 @@
     <button id='games' type="button" class="filter-btn top" @click="getGameQuotes()">Game Quotes</button>
     <button type="button" class="filter-btn top" @click="updateVisibleItems()">All Quotes</button>
     <div>
-      <ol class="list">
+      <ul class="list">
         <li
           v-for="item in visibleItems"
           v-bind:visibleItems="visibleItems"
@@ -26,7 +26,7 @@
           <br />
           <br />
         </li>
-      </ol>
+      </ul>
       <div v-if="totalPages()" class="pagination-wrapper">
         <button
           v-if="showPreviousLink()"
